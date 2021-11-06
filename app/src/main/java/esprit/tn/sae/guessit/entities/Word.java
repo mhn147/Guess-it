@@ -1,5 +1,8 @@
 package esprit.tn.sae.guessit.entities;
 
+import androidx.room.Entity;
+
+@Entity
 public class Word {
     private int id;
     private String word;

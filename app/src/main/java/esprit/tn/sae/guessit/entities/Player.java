@@ -1,8 +1,11 @@
 package esprit.tn.sae.guessit.entities;
 
+import androidx.room.Entity;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Player {
     private int id;
     private String name;

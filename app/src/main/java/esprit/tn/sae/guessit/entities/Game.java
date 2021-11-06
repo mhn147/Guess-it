@@ -1,12 +1,30 @@
 package esprit.tn.sae.guessit.entities;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.room.Relation;
+
 import java.util.List;
 
+@Entity
 public class Game {
+    @PrimaryKey
     private int id;
     private List<Player> players;
     private List<Word> wordsToGuessNumber;
+    @ColumnInfo
     private int roundsPerWord;
+
+    public Game() {
+
+    }
+
+    public Game(List<Player> players, List<Word> wordsToGuessNumber, int roundsPerWord) {
+        this.players = players;
+        this.wordsToGuessNumber = wordsToGuessNumber;
+        this.roundsPerWord = roundsPerWord;
+    }
 
     public int getId() {
         return id;
