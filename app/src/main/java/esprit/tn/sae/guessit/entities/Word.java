@@ -1,18 +1,20 @@
 package esprit.tn.sae.guessit.entities;
 
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity
 public class Word {
-    private int id;
+    @PrimaryKey(autoGenerate = true)
+    private int wordId;
     private String word;
 
-    public int getId() {
-        return id;
+    public int getWordId() {
+        return wordId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setWordId(int wordId) {
+        this.wordId = wordId;
     }
 
     public String getWord() {
