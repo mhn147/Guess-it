@@ -2,52 +2,32 @@ package esprit.tn.sae.guessit.entities;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-import androidx.room.Relation;
 
 import java.util.List;
 
 @Entity
 public class Game {
-    @PrimaryKey
-    private int id;
-    private List<Player> players;
-    private List<Word> wordsToGuessNumber;
+    @PrimaryKey(autoGenerate = true)
+    private int gameId;
     @ColumnInfo
     private int roundsPerWord;
+    @ColumnInfo
+    private String winnerName;
+    @Ignore
+    private List<Player> players;
 
     public Game() {
 
     }
 
-    public Game(List<Player> players, List<Word> wordsToGuessNumber, int roundsPerWord) {
-        this.players = players;
-        this.wordsToGuessNumber = wordsToGuessNumber;
-        this.roundsPerWord = roundsPerWord;
+    public int getGameId() {
+        return gameId;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public List<Player> getPlayers() {
-        return players;
-    }
-
-    public void setPlayers(List<Player> players) {
-        this.players = players;
-    }
-
-    public List<Word> getWordsToGuessNumber() {
-        return wordsToGuessNumber;
-    }
-
-    public void setWordsToGuessNumber(List<Word> wordsToGuessNumber) {
-        this.wordsToGuessNumber = wordsToGuessNumber;
+    public void setGameId(int gameId) {
+        this.gameId = gameId;
     }
 
     public int getRoundsPerWord() {
@@ -56,5 +36,21 @@ public class Game {
 
     public void setRoundsPerWord(int roundsPerWord) {
         this.roundsPerWord = roundsPerWord;
+    }
+
+    public String getWinnerName() {
+        return winnerName;
+    }
+
+    public void setWinnerName(String winnerName) {
+        this.winnerName = winnerName;
+    }
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
     }
 }

@@ -1,17 +1,25 @@
 package esprit.tn.sae.guessit.entities;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Player {
-    private int id;
+    @PrimaryKey(autoGenerate = true)
+    private int playerId;
+    @ColumnInfo
     private String name;
+    @Ignore
     private boolean guessHolder;
+    @Ignore
     private int score;
-    private List<PlayerBonus> bonuses;
+    @Ignore
+    private List<PlayerBonus> bonuses = new ArrayList<PlayerBonus>();
 
     public Player() {
         bonuses.add(new PlayerBonus(Bonus.DoubleScore));
@@ -19,12 +27,12 @@ public class Player {
         bonuses.add(new PlayerBonus(Bonus.BlockNext));
     }
 
-    public int getId() {
-        return id;
+    public int getPlayerId() {
+        return playerId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPlayerId(int playerId) {
+        this.playerId = playerId;
     }
 
     public String getName() {
