@@ -1,6 +1,7 @@
 package esprit.tn.sae.guessit.dao;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -16,4 +17,7 @@ public interface WordDAO {
 
     @Query("SELECT * FROM word")
     List<Word> get();
+
+    @Query("DELETE FROM word")
+    void deleteAll();
 }

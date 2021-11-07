@@ -17,7 +17,7 @@ public class Player {
     @Ignore
     private boolean guessHolder;
     @Ignore
-    private int score;
+    private int score = 1;
     @Ignore
     private List<PlayerBonus> bonuses = new ArrayList<PlayerBonus>();
 

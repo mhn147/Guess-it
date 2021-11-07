@@ -11,85 +11,20 @@
         android:id="@+id/scrollView2"
         android:layout_width="395dp"
         android:layout_height="200dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintBottom_toTopOf="@+id/endGameButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.771">
+        app:layout_constraintTop_toBottomOf="@+id/hideWordButton">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical" >
 
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mainGamePlayersRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Mohamed Nasri"
-                        android:textSize="20sp" />
-
-                    <EditText
-                        android:id="@+id/editTextNumber"
-                        android:layout_width="50dp"
-                        android:layout_height="match_parent"
-                        android:ems="10"
-                        android:inputType="number" />
-
-                    <Button
-                        android:id="@+id/button6"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:text="+"
-                        android:textSize="20sp"
-                        app:backgroundTint="@color/teal_700"
-                        tools:layout_editor_absoluteX="172dp"
-                        tools:layout_editor_absoluteY="216dp" />
-
-                    <Button
-                        android:id="@+id/deleteBtn2"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="0dp"
-                        android:layout_weight="1"
-                        android:text="Bonus"
-                        app:backgroundTint="@color/purple_500" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"/>
-
+                android:layout_height="match_parent" />
         </LinearLayout>
     </ScrollView>
 
@@ -97,15 +32,17 @@
         android:id="@+id/roundsPerWordTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="4dp"
         android:text="Round (1 / 3 )"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintStart_toStartOf="@+id/scrollView2" />
+        app:layout_constraintBottom_toTopOf="@+id/nextWordButton"
+        app:layout_constraintEnd_toStartOf="@+id/nextRoundButton"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.844" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/gameStartMenuButton"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Start Menu"
@@ -113,12 +50,13 @@
         app:backgroundTint="@color/gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.944" />
+        app:layout_constraintTop_toBottomOf="@+id/endGameButton"
+        app:layout_constraintVertical_bias="0.155" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/endGameButton"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="End Game"
@@ -126,25 +64,23 @@
         app:backgroundTint="@color/brownbuff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/gameStartMenuButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.874" />
+        app:layout_constraintVertical_bias="0.883" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/hideWordButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:text="Hide the word"
         android:textColorLink="@color/brownbuff"
         app:backgroundTint="@color/gray"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -152,13 +88,12 @@
         android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.134">
+        app:layout_constraintVertical_bias="0.23">
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/wordTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Word"
@@ -174,38 +109,38 @@
         android:id="@+id/wordsCountTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:text="Words (1 / 10)"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+        app:layout_constraintBottom_toBottomOf="@+id/nextWordButton"
+        app:layout_constraintEnd_toStartOf="@+id/nextWordButton"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.933" />
 
     <Button
         android:id="@+id/nextWordButton"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         android:text="Next Word"
         android:textColorLink="@color/brownbuff"
         android:textSize="10sp"
         app:backgroundTint="@color/gray"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="@+id/constraintLayout" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/nextRoundButton"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
+        android:layout_marginEnd="16dp"
         android:text="Next Round"
         android:textColorLink="@color/brownbuff"
         android:textSize="10sp"
         app:backgroundTint="@color/gray"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintEnd_toEndOf="@+id/scrollView2" />
+        app:layout_constraintBottom_toTopOf="@+id/nextWordButton"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

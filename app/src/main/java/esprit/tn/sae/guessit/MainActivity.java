@@ -29,7 +29,10 @@ public class MainActivity extends AppCompatActivity {
         startGameButton = findViewById(R.id.newGameBtn);
 
         db = MyDatabase.getDatabase(this);
-        populateWords();
+        // TMP IN DEV
+        db.wordDAO().deleteAll();
+        // END TMP
+        _populateWords();
 
         playersBtn.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, PlayersActivity.class);
@@ -46,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void populateWords() {
+    private void _populateWords() {
         ArrayList<Word> words = (ArrayList<Word>) db.wordDAO().get();
         
         if (words.size() == 0) {
@@ -65,6 +68,19 @@ public class MainActivity extends AppCompatActivity {
             wordsStrings.add("Coffee");
             wordsStrings.add("Candidate");
             wordsStrings.add("Elephant");
+            wordsStrings.add("Moon");
+            wordsStrings.add("Person");
+            wordsStrings.add("Life");
+            wordsStrings.add("Hand");
+            wordsStrings.add("Eye");
+            wordsStrings.add("Woman");
+            wordsStrings.add("Work");
+            wordsStrings.add("Company");
+            wordsStrings.add("Problem");
+            wordsStrings.add("Fact");
+            wordsStrings.add("Number");
+            wordsStrings.add("Money");
+            wordsStrings.add("Tomorrow");
 
             for (String word: wordsStrings) {
                 db.wordDAO().add(new Word(word));
