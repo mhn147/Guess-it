@@ -5,8 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.EditText;
 
-public class GameMain extends AppCompatActivity {
+import java.util.List;
+
+import esprit.tn.sae.guessit.database.MyDatabase;
+import esprit.tn.sae.guessit.entities.Player;
+
+public class GameMainActivity extends AppCompatActivity {
 
     Button startMenuButton;
 

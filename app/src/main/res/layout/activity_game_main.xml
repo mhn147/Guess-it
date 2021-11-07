@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_guessit"
-    tools:context=".GameMain">
+    tools:context=".GameMainActivity">
 
     <ScrollView
         android:id="@+id/scrollView2"
