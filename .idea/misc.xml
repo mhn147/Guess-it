@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/guessit/Guess-it/app/src/main/res/layout/activity_game_main.xml" value="0.4" />
+        <entry key="..\:/guessit/Guess-it/app/src/main/res/layout/activity_game_main.xml" value="0.264" />
         <entry key="..\:/guessit/Guess-it/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
         <entry key="..\:/guessit/Guess-it/app/src/main/res/layout/activity_players.xml" value="0.4" />
+        <entry key="..\:/guessit/Guess-it/app/src/main/res/layout/bonus.xml" value="0.1793478260869565" />
+        <entry key="..\:/guessit/Guess-it/app/src/main/res/layout/bonuspage.xml" value="0.24010416666666667" />
       </map>
     </option>
   </component>
