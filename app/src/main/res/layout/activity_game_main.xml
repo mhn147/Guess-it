@@ -94,7 +94,7 @@
     </ScrollView>
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/roundsPerWordTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -171,7 +171,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/wordsCountTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -185,7 +185,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/nextWordButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Next Word"
@@ -196,7 +196,7 @@
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/nextRoundButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="0dp"

@@ -9,6 +9,10 @@ public class Word {
     private int wordId;
     private String word;
 
+    public Word(String word) {
+        this.word = word;
+    }
+
     public int getWordId() {
         return wordId;
     }

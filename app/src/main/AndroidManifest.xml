@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Guessit">
-        <activity android:name=".GameMainActivity"></activity>
+        <activity
+            android:name=".CreateGameActivity"
+            android:exported="true" />
+        <activity android:name=".GameMainActivity" />
         <activity
             android:name=".PlayersActivity"
             android:label="@string/title_activity_players"
