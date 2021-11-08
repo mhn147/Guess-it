@@ -117,6 +117,9 @@ public class  GameMainActivity extends AppCompatActivity {
                 wordsCountIndex++;
             _setWordsCountText();
             _updateWord();
+            roundsIndex = 1;
+            _setRoundsPerWordText();
+            _updateScoreValue();
         });
 
         nextRoundButton.setOnClickListener(view -> {
@@ -137,7 +140,8 @@ public class  GameMainActivity extends AppCompatActivity {
         });
 
         gameStartMenuButton.setOnClickListener(view -> {
-            finish();
+            Intent intent = new Intent(GameMainActivity.this, MainActivity.class);
+            startActivity(intent);
         });
 
         endGameButton.setOnClickListener(view -> {
@@ -169,6 +173,7 @@ public class  GameMainActivity extends AppCompatActivity {
     private void _setWordsCountText() {
         wordsCountTextView.setText("Words (" + wordsCountIndex + " / " + wordsCount +  ")");
     }
+
     private void _setRoundsPerWordText() {
         roundsPerWordTextView.setText("Rounds (" + roundsIndex + " / " + roundsPerWord +  ")");
     }

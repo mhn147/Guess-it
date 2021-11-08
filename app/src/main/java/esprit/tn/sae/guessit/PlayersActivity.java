@@ -1,10 +1,15 @@
 package esprit.tn.sae.guessit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,7 +42,7 @@ public class PlayersActivity extends AppCompatActivity {
         db = MyDatabase.getDatabase(this);
         players = db.playerDAO().get();
 
-        setPlayersListAdapter();
+        _setPlayersListAdapter();
 
         startMenuButton.setOnClickListener(view -> {
             finish();
@@ -54,13 +59,27 @@ public class PlayersActivity extends AppCompatActivity {
             db.playerDAO().add(player);
             players = db.playerDAO().get();
 
-            updateRecyclerView();
+            _updateRecyclerView();
 
             editTextPlayerName.setText("");
+
+            LocalBroadcastManager.getInstance(this).registerReceiver(playerDeletedReceiver, new IntentFilter("player-deleted"));
         });
     }
 
-    private void setPlayersListAdapter() {
+    public BroadcastReceiver playerDeletedReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            int playerId = intent.getIntExtra("player-deleted", -1);
+            if (playerId > 0) {
+                db.playerDAO().deleteById(playerId);
+                players = db.playerDAO().get();
+            }
+            _updateRecyclerView();
+        }
+    };
+
+    private void _setPlayersListAdapter() {
         PlayersRecyclerAdapter adapter = new PlayersRecyclerAdapter(players);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -68,7 +87,7 @@ public class PlayersActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    private void updateRecyclerView() {
+    private void _updateRecyclerView() {
         PlayersRecyclerAdapter adapter = new PlayersRecyclerAdapter(players);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);

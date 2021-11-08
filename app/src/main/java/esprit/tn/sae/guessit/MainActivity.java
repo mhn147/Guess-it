@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         db = MyDatabase.getDatabase(this);
         // TMP IN DEV
         db.wordDAO().deleteAll();
+        db.playerDAO().deleteAll();
         // END TMP
         _populateWords();
 

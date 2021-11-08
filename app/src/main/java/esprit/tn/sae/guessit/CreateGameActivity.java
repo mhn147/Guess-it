@@ -34,6 +34,11 @@ public class CreateGameActivity extends AppCompatActivity {
 
         startBtn.setOnClickListener(view -> {
 
+            String roundsPerWord = roundsPerWordInput.getText().toString();
+            String wordsCount = wordsNumberInput.getText().toString();
+
+            if (roundsPerWord.isEmpty() || wordsCount.isEmpty()) return;
+
             Intent intent = new Intent(CreateGameActivity.this, GameMainActivity.class);
 
             intent.putExtra("wordsCount", wordsNumberInput.getText().toString());

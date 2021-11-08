@@ -17,6 +17,12 @@ public interface PlayerDAO {
     @Delete
     void delete(Player player);
 
+    @Query("DELETE FROM player WHERE playerId = :playerId")
+    void deleteById(int playerId);
+
     @Query("SELECT * FROM player")
     List<Player> get();
+
+    @Query("DELETE FROM player")
+    void deleteAll();
 }

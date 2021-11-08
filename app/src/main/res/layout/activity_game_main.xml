@@ -45,7 +45,7 @@
         android:id="@+id/gameStartMenuButton"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Start Menu"
+        android:text="Main Menu"
         android:textColorLink="@color/brownbuff"
         app:backgroundTint="@color/gray"
         app:layout_constraintBottom_toBottomOf="parent"

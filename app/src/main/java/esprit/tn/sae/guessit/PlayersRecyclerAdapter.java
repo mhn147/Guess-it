@@ -1,11 +1,14 @@
 package esprit.tn.sae.guessit;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -21,10 +24,18 @@ public class PlayersRecyclerAdapter extends RecyclerView.Adapter<PlayersRecycler
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView playerNameTextView;
+        private Button deleteButton;
 
         public MyViewHolder(final View view) {
             super(view);
             this.playerNameTextView = view.findViewById(R.id.playerNameTextView);
+            this.deleteButton = view.findViewById(R.id.playerDeleteButton);
+
+            this.deleteButton.setOnClickListener(v -> {
+                Intent intent = new Intent("player-deleted");
+                intent.putExtra("player-deleted", players.get(getAdapterPosition()).getPlayerId());
+                LocalBroadcastManager.getInstance(v.getContext()).sendBroadcast(intent);
+            });
         }
     }
 
